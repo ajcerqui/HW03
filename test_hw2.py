@@ -8,6 +8,7 @@
 import mock
 import pytest
 import os
+import random
 
 import Prob3
 import Prob4
@@ -23,7 +24,7 @@ class Test_WrittenWork:
 
 class Test_Prob4:
     def test_prints_correct_password(self, capsys):
-        CodeLibrary.SEED = 10
+        CodeLibrary.SEED = random.randint(0,100)
         code = CodeLibrary.generate_code(seed=CodeLibrary.SEED)
         Prob4.password_finder()
         captured = capsys.readouterr()
