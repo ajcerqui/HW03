@@ -15,4 +15,4 @@ The homework pdf has all the basic instructions, but here are some additional gu
 I have moved the due date for this homework to Thursday to better take advantage of the tutoring happening on Tuesday and Thursday nights. This does mean I probably won't get graded materials back to you until the weekend most weeks.
 
 #### Testing
-Automated tests will be present for Problem 4 and to check for the presence of your pdf. I will probably not be writing any for Problem 3 do to its more freeform nature. Testing that will be up to you!
+Automated tests will be present for Problem 4 and to check for the presence of your pdf. I will probably not be writing any for Problem 3 due to its more freeform nature. Testing that will be up to you!
