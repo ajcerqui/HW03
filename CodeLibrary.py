@@ -1,4 +1,4 @@
-# Library to generate random codes and accompanying secret messages
+# Library to generate random codes and accompany lock check
 
 import random
 import string
@@ -18,6 +18,6 @@ def generate_code(digits: int = 3, seed:int = None) -> str :
 
 def attempt_unlock(guess:str) -> str:
     if guess == generate_code(seed=SEED):
-        return 'The secret is in the sauce.'
+        return 'ACCESS GRANTED'
     else:
         return 'ACCESS DENIED'
