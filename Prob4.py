@@ -1,30 +1,34 @@
 #######################################
-#
 # Name:
-#
 # Collaborators:
-#
+# Estimated time spent (hr):
 #######################################
 
+import arcade
+
+# Setting up initial window dimensions. You can change these if you want. They are in number of pixels.
+WIDTH = 600
+HEIGHT = 600
+arcade.open_window(WIDTH, HEIGHT, 'Problem 4 Picture')
+
+# Setting the background, if you want, to some other color:
+arcade.set_background_color(arcade.color.WHITE)
 
 
-from CodeLibrary import attempt_unlock
-
-def password_finder():
-    # Insert your code below to attempt which will figure out the
-    # secret code and print it to the screen.
-    # The function attempt_unlock(password) will return ACCESS GRANTED
-    # if your code is correct or ACCESS DENIED if it is incorrect.
-    # Once you have found the correct code, print it to the screen.
-    # Remember to indent your code in here.
-
-
-    # Print the successful code to the screen
-    # (Replace <password> with whatever variable you saved the password as)
-    print(<password>)
+# Start of the drawing commands
+arcade.start_render()
+# All your drawing commands should be below here...
 
 
 
-# You shouldn't need to change anything below this:
-if __name__ == '__main__':
-    password_finder()
+
+
+
+
+
+# and above here.
+arcade.finish_render()
+
+
+# This keeps the window open so you can view your lovely image!
+arcade.run()
