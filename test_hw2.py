@@ -12,7 +12,6 @@ import random
 
 import Prob2
 import Prob3
-import Prob4
 
 def numcheck(num, ans, tol=0.02):
     return (ans*(1-tol) < num < ans*(1+tol))
@@ -67,9 +66,36 @@ class Test_Prob3:
             assert len(captured) > 0
 
     def test_prints_higher_correctly(self, capsys):
-        inputs = [50]
+        inputs = [50,75]
         correct = 75
         with mock.patch('builtins.input', side_effect=inputs):
             Prob3.guessing_game(correct)
             captured = capsys.readouterr().out.rstrip()
-            assert captured.lower() == 'the unknown number is higher!'
+            assert 'higher' in captured.lower()
+
+    def test_prints_lower_correctly(self, capsys):
+        inputs = [50,25]
+        correct = 25
+        with mock.patch('builtins.input', side_effect=inputs):
+            Prob3.guessing_game(correct)
+            captured = capsys.readouterr().out.rstrip()
+            assert 'lower' in captured.lower()
+
+    def test_prints_proper_score(self, capsys):
+        tests = {
+                45: [50,25,30,40,45],
+                87: [50,75,85,87],
+                56: [50,75,75,75,65,55,56],
+                1:  [50,25,12,6,3,2,1]
+                }
+        for c in tests:
+            with mock.patch('builtins.input', side_effect=tests[c]):
+                Prob3.guessing_game(c)
+                captured = capsys.readouterr().out.rstrip()
+                assert str(len(tests[c])) in captured.lower(), f"\nFor a correct value of {c}, I guessed {','.join(map(str,tests[c]))}. So the score should have been {len(tests[c])} but that value does not show up in your print out?\n\n"
+
+class Test_Prob4:
+    def test_used_while_loop(self):
+        with open('Prob4.py', 'r') as f:
+            filestr = ''.join(f.readlines())
+        assert 'while' in filestr, '\nIt does not look like you used a while loop anywhere in your image.\n'
