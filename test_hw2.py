@@ -5,97 +5,52 @@
 # correctly! Please do not change!
 
 
-import mock
 import pytest
 import os
-import random
 
+import Prob1
 import Prob2
 import Prob3
 
 def numcheck(num, ans, tol=0.02):
     return (ans*(1-tol) < num < ans*(1+tol))
 
-class Test_WrittenWork:
-    def test_pdf_present(self):
-        assert os.path.isfile('HW2.pdf') == True
-
-class Test_Prob2:
+class Test_Prob1:
     def test_prints_something(self, capsys):
-        inputs = ['zebra']
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob2.pigify()
-            captured = capsys.readouterr().out.rstrip()
-            assert len(captured) > 0
+        Prob1.hailstone(4)
+        captured = capsys.readouterr().out.rstrip()
+        assert len(captured) > 0, "It seems nothing is being printed. Are you sure you are printing out the needed lines?"
 
-    def test_word_zebra(self, capsys):
-        inputs = ['zebra']
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob2.pigify()
-            captured = capsys.readouterr().out.rstrip()
-            assert captured == 'ebrazay'
+    def test_returns_nothing(self, capsys):
+        student = Prob1.hailstone(5)
+        assert student is None, "You are not supposed to be returning anything from this function, and yet it seems you are?"
 
-    def test_word_iguana(self, capsys):
-        inputs = ['iguana']
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob2.pigify()
-            captured = capsys.readouterr().out.rstrip()
-            assert captured == 'iguanahay'
+    def test_check_start_17(self, capsys):
+        steps = [46,23,70,35,106,53,160,80,40,20,10,5,16,8,4,2,1]
+        Prob1.hailstone(17)
+        captured = capsys.readouterr().out.rstrip()
+        str_by_line = captured.split('\n')
+        assert len(str_by_line) == steps + 1, "Are you printing each step out on its own line? Or have you forgotten to print out the number of steps at the end?"
+        for line, step in zip(str_by_line[:-1], steps):
+            assert step in line, f"The value {step} was expected to show up, but didn't in line: '{line}'"
 
-    def test_word_radish(self, capsys):
-        inputs = ['radish']
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob2.pigify()
-            captured = capsys.readouterr().out.rstrip()
-            assert captured == 'adishray'
+    def test_check_start_15(self, capsys):
+        steps = [52,26,13,40,20,10,5,16,8,4,2,1]
+        Prob1.hailstone(15)
+        captured = capsys.readouterr().out.rstrip()
+        str_by_line = captured.split('\n')
+        assert len(str_by_line) == steps + 1, "Are you printing each step out on its own line? Or have you forgotten to print out the number of steps at the end?"
+        for line, step in zip(str_by_line[:-1], steps):
+            assert step in line, f"The value {step} was expected to show up, but didn't in line: '{line}'"
 
-    def test_word_ugly(self, capsys):
-        inputs = ['ugly']
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob2.pigify()
-            captured = capsys.readouterr().out.rstrip()
-            assert captured == 'uglyhay'
+    def test_check_steps_taken_printed(self, capsys):
+        Prob1.hailstone(27)
+        captured = capsys.readouterr().out.rstrip()
+        str_by_line = captured.split("\n")
+        assert str(111) in str_by_line[-1], "Did you remember to print out the number of steps take in the last line? For hailstone(27) that should have been 111 but that number is not apparent in your last line."
 
 class Test_Prob3:
-    def test_prints_something(self, capsys):
-        inputs = [50]
-        correct = 50
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob3.guessing_game(correct)
-            captured = capsys.readouterr().out.rstrip()
-            assert len(captured) > 0
-
-    def test_prints_higher_correctly(self, capsys):
-        inputs = [50,75]
-        correct = 75
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob3.guessing_game(correct)
-            captured = capsys.readouterr().out.rstrip()
-            assert 'higher' in captured.lower()
-
-    def test_prints_lower_correctly(self, capsys):
-        inputs = [50,25]
-        correct = 25
-        with mock.patch('builtins.input', side_effect=inputs):
-            Prob3.guessing_game(correct)
-            captured = capsys.readouterr().out.rstrip()
-            assert 'lower' in captured.lower()
-
-    def test_prints_proper_score(self, capsys):
-        tests = {
-                45: [50,25,30,40,45],
-                87: [50,75,85,87],
-                56: [50,75,75,75,65,55,56],
-                1:  [50,25,12,6,3,2,1]
-                }
-        for c in tests:
-            with mock.patch('builtins.input', side_effect=tests[c]):
-                Prob3.guessing_game(c)
-                captured = capsys.readouterr().out.rstrip()
-                assert str(len(tests[c])) in captured.lower(), f"\nFor a correct value of {c}, I guessed {','.join(map(str,tests[c]))}. So the score should have been {len(tests[c])} but that value does not show up in your print out?\n\n"
-
-class Test_Prob4:
-    def test_used_while_loop(self):
-        with open('Prob4.py', 'r') as f:
+    def test_used_a_loop(self):
+        with open('Prob3.py', 'r') as f:
             filestr = ''.join(f.readlines())
-        assert 'while' in filestr, '\nIt does not look like you used a while loop anywhere in your image.\n'
+        assert 'while' in filestr or 'for' in filestr, '\nIt does not look like you used a loop anywhere in your image.\n'
