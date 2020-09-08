@@ -81,3 +81,8 @@ class Test_Prob3:
         with open('Prob3.py', 'r') as f:
             filestr = ''.join(f.readlines())
         assert 'while' in filestr or 'for' in filestr, '\nIt does not look like you used a loop anywhere in your image.\n'
+    
+    def test_defined_a_function(self):
+        with open('Prob3.py', 'r') as f:
+            filestr = ''.join(f.readlines())
+        assert 'def' in filestr, '\nIt does not look like you used a loop anywhere in your image.\n'
