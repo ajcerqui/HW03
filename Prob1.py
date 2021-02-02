@@ -1,28 +1,23 @@
 ########################################
 # Name:
 # Collaborators:
-# Estimated time spend (hr):
+# Estimated time spent (hr):
 ########################################
 
-
-# I've given you the initial function declaration here to get you going
-def hailstone(n):
+def digital_root(n):
     """
-    Takes a starting integer (n) and prints out the steps of the hailstone
-    sequence in a style similar to Hofstadter's book.
+    Computes and returns the digital root of a given integer n.
+    If you want to define any other function(s) to help you
+    out, feel more than free, just make sure this is the main
+    function, as this is what will be tested against.
 
-    Returns nothing, just prints out the sequence and the number of steps
-    taken at the end.
+    Inputs:
+        n (int): The number to take the digital root of
+
+    Outputs:
+        int: The digital root of the provided number
     """
-    pass #you can remove this once you code is added
-
-
-
-
-
-
-
-
+    # Add your code below!
 
 
 
@@ -32,4 +27,8 @@ def hailstone(n):
 
 
 if __name__ == '__main__':
-    hailstone(17) #feel free to enter in any other value you want to test
+    # You can alter the below value to test your function with a variety
+    # of numeric inputs!
+
+    test_input = 1729
+    print("The digital root of ", test_input, " is ", digital_root(test_input))

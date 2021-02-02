@@ -4,14 +4,17 @@
 # Estimated time spent (hr):
 ########################################
 
-def digital_root(n):
+def approximate_pi(n_terms):
     """
-    Computes and returns the digital root of a given integer n.
-    If you want to define any other function(s) to help you
-    out, feel more than free, just make sure this is the main
-    function, as this is what will be tested against.
+    Approximates the value of pi using Leibniz's series.
+
+    Inputs:
+        n_terms (int): The number of desired terms
+
+    Outputs:
+        float: The approximate value of pi
     """
-    pass # You can remove once you add your code
+    # Add your code below!
 
 
 
@@ -21,4 +24,7 @@ def digital_root(n):
 
 
 if __name__ == '__main__':
-    print(digital_root(1729))
+    # You can alter the below value to test your function with a variety
+    # of numeric inputs!
+    test_num_terms = 5
+    print("Pi is approximately ", approximate_pi(test_num_terms), " using ", test_num_terms, " terms.")
