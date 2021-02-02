@@ -50,7 +50,7 @@ class Test_Prob2:
 
     def test_1_term(self):
         student = Prob2.approximate_pi(1)
-        sol = 1
+        sol = 4
         assert numcheck_pm(student, sol), f"Your approximate value of {student} is unexpectedly far from the correct value of {sol}."
 
     def test_5_term(self):
