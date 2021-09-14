@@ -6,15 +6,16 @@
 
 
 import pytest
-import os
 
 import Prob1
 import Prob2
 
 def numcheck(num, ans, tol=0.02):
+    """Checks if a number is within a percentage tolerance of another. """
     return (ans*(1-tol) < num < ans*(1+tol))
 
 def numcheck_pm(num, ans, pm=0.02):
+    """Checks if a number is within a plus/minus threshold of another number. """
     return (ans-pm < num < ans+pm)
 
 class Test_Prob1:

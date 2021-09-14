@@ -1,10 +1,16 @@
 # Problem Set 2
+<details>
+<summary><em>metadata</em></summary>
+Category: problem-set<br>
+Points: 20<br>
+Due: 2021-09-20<br>
+</details>
 
-Assignment Status: PENDING
+- [ ] Submitted?
 
-_Please change the above to DONE when you finish and want the assignment to be graded!_
+_Please insert an x in the square brackets above to mark the assignment as submitted!_
 
-Due the night of February 7th at midnight!
+Due the night of September 20th at midnight!
 
 ## Instructions
 The homework pdf has all the basic instructions, but here are some additional guidelines:

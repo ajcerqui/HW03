@@ -5,12 +5,10 @@
 ########################################
 
 def approximate_pi(n_terms):
-    """
-    Approximates the value of pi using Leibniz's series.
+    """ Approximates the value of pi using Leibniz's series.
 
     Inputs:
         n_terms (int): The number of desired terms
-
     Outputs:
         float: The approximate value of pi
     """

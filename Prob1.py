@@ -5,15 +5,14 @@
 ########################################
 
 def digital_root(n):
-    """
-    Computes and returns the digital root of a given integer n.
+    """Computes and returns the digital root of a given integer n.
+
     If you want to define any other function(s) to help you
     out, feel more than free, just make sure this is the main
     function, as this is what will be tested against.
 
     Inputs:
         n (int): The number to take the digital root of
-
     Outputs:
         int: The digital root of the provided number
     """
