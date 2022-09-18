@@ -4,13 +4,13 @@
 # Estimated time spent (hr):
 ########################################
 
-def approximate_pi(n_terms):
-    """ Approximates the value of pi using Leibniz's series.
+def draw_console_pyramid(height):
+    """Draws a symmetric pyramid of * symbols that is height rows tall
 
-    Inputs:
-        n_terms (int): The number of desired terms
-    Outputs:
-        float: The approximate value of pi
+    Arguments:
+        height (int): The number of desired rows in the pyramid
+    Returns:
+        Nothing
     """
     # Add your code below!
 
@@ -24,5 +24,5 @@ def approximate_pi(n_terms):
 if __name__ == '__main__':
     # You can alter the below value to test your function with a variety
     # of numeric inputs!
-    test_num_terms = 5
-    print("Pi is approximately ", approximate_pi(test_num_terms), " using ", test_num_terms, " terms.")
+    rows = 8
+    draw_console_pyramid(rows)
