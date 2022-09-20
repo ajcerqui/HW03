@@ -1,4 +1,4 @@
-# Problem Set 2
+# Problem Set 3
 
 Due the night of September 23th at midnight!
 
