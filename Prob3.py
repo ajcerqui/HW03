@@ -4,13 +4,43 @@
 # Estimated time spent (hr):
 #######################################
 
-from pgl import GWindow, GRect, GOval, GLine, GLabel
+from english import ENGLISH_WORDS
 
-# Setting up initial window dimensions. You can change these if you want. They are in number of pixels.
-WIDTH = 600
-HEIGHT = 600
 
-# Creating the window
-gw = GWindow(WIDTH, HEIGHT)
+# Part A
+def contains_repeated_letters(word):
+    """Returns True if the word contains more than one instance of any letter.
 
-# And you can take it from here! I'm excited to see what you create!
+    Arguments:
+        word (str): The word to check
+    Returns:
+        (bool): True or False depending on if the word contains duplicated letters
+    """
+    # Your turn!
+
+
+
+
+
+# Part B
+def longest_no_repeats():
+    """Returns the longest word in the English dictionary without an repeated letters.
+
+    Arguments:
+        None
+    Returns:
+        (str): The longest word without repeated letters
+    """
+    # Your turn!
+
+
+
+
+
+if __name__ == '__main__':
+    # Part A
+    print(contains_repeated_letters("single"))
+    print(contains_repeated_letters("repeating"))
+
+    # Part B
+    # print(longest_no_repeats()) #Uncomment when you've finished Part B

@@ -4,14 +4,13 @@
 # Estimated time spent (hr):
 ########################################
 
-def largest_two():
-    """Prompts the user for integer inputs and then prints out the largest two
-    integers entered.
+def draw_console_pyramid(height):
+    """Draws a symmetric pyramid of * symbols that is height rows tall
 
     Arguments:
-        None
+        height (int): The number of desired rows in the pyramid
     Returns:
-        None
+        Nothing
     """
     # Add your code below!
 
@@ -23,4 +22,7 @@ def largest_two():
 
 
 if __name__ == '__main__':
-    largest_two()
+    # You can alter the below value to test your function with a variety
+    # of numeric inputs!
+    rows = 8
+    draw_console_pyramid(rows)

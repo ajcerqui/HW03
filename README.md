@@ -1,6 +1,6 @@
 # Problem Set 3
 
-Due the night of September 23th at midnight!
+Due the night of February 10th at midnight!
 
 ## Instructions
 The homework pdf has all the basic instructions, but here are some additional guidelines:
@@ -10,4 +10,4 @@ The homework pdf has all the basic instructions, but here are some additional gu
  	- Make sure you meet all your requirements!
 
 #### Testing
-Automated tests for Problems 1 and 2 will attempt to make sure everything is working properly. For Problem 3 things are very open-ended, so the tests will just look to try to see that you used a loop somewhere, defined a function somewhere, and used a `GLabel`. I'll check the rest myself.
+Automated tests exist for all problems and will attempt to make sure everything is working properly and give you some feedback. As always, you should also do your own testing to make sure nothing slips through the cracks.
