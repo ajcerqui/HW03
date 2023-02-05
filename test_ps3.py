@@ -11,39 +11,6 @@ import Prob3
 from hashlib import sha256
 
 
-class Test_Prob2:
-    def test_replicates_pdf_example(self, monkeypatch, capsys):
-        input_values = ['223','251','317','636','766','607','607', '']
-        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
-        Prob2.largest_two()
-        captured = capsys.readouterr().out.splitlines()
-        assert '766' in captured[-2], f"The largest number 766 should be appearing on the second to last line of your output!"
-        assert '636' in captured[-1], f"The second-largest number 636 should be appearing on the second to last line of your output!"
-
-    def test_alternative_amount_of_values(self, monkeypatch, capsys):
-        input_values = ['412', '392', '744', '13', '']
-        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
-        Prob2.largest_two()
-        captured = capsys.readouterr().out.splitlines()
-        assert '744' in captured[-2], f"The largest number 744 should be appearing on the second to last line of your output!"
-        assert '412' in captured[-1], f"The second-largest number 412 should be appearing on the second to last line of your output!"
-
-    def test_with_negative_values(self, monkeypatch, capsys):
-        input_values = ['-42', '36', '-14', '-999999999999999999', '']
-        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
-        Prob2.largest_two()
-        captured = capsys.readouterr().out.splitlines()
-        assert '36' in captured[-2], f"The largest number 36 should be appearing on the second to last line of your output!"
-        assert '-14' in captured[-1], f"The second-largest number -14 should be appearing on the second to last line of your output!"
-
-    def test_equal_values(self, monkeypatch, capsys):
-        input_values = ['13', '13', '']
-        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
-        Prob2.largest_two()
-        captured = capsys.readouterr().out.splitlines()
-        assert '13' in captured[-2], f"The largest number 13 should be appearing on the second to last line of your output!"
-        assert '13' in captured[-1], f"The second-largest number 13 should be appearing on the second to last line of your output!"
-
 
 class Test_Prob1:
     def test_correct_symbol(self, capsys):
@@ -80,13 +47,60 @@ class Test_Prob1:
         assert captured[-1][0] == '*', \
             'Your pyramid should be against the left edge at the bottom, and it seems to not be.'
 
+class Test_Prob2:
+    def test_replicates_pdf_example(self, monkeypatch, capsys):
+        input_values = ['223','251','317','636','766','607','607', '']
+        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+        Prob2.largest_two()
+        captured = capsys.readouterr().out.splitlines()
+        assert '766' in captured[-2], f"The largest number 766 should be appearing on the second to last line of your output!"
+        assert '636' in captured[-1], f"The second-largest number 636 should be appearing on the second to last line of your output!"
+
+    def test_alternative_amount_of_values(self, monkeypatch, capsys):
+        input_values = ['412', '392', '744', '13', '']
+        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+        Prob2.largest_two()
+        captured = capsys.readouterr().out.splitlines()
+        assert '744' in captured[-2], f"The largest number 744 should be appearing on the second to last line of your output!"
+        assert '412' in captured[-1], f"The second-largest number 412 should be appearing on the second to last line of your output!"
+    
+    def test_alternative_orderings(self, monkeypatch, capsys):
+        input_values = [['100', '80', '50', ''], 
+                        ['100', '50', '80', ''],
+                        ['80', '100', '50', ''],
+                        ['80', '50', '100', ''],
+                        ['50', '100', '80', ''],
+                        ['50', '80', '100', '']]
+        for seq in input_values:
+            monkeypatch.setattr('builtins.input', lambda _: seq.pop(0))
+            Prob2.largest_two()
+            captured = capsys.readouterr().out.splitlines()
+            assert '100' in captured[-2], f"With inputs of {seq}, the largest number 100 should be appearing on the second to last line of your output!"
+            assert '80' in captured[-1], f"With inputs of {seq}, the second-largest number 80 should be appearing on the second to last line of your output!"
+
+    def test_with_negative_values(self, monkeypatch, capsys):
+        input_values = ['-42', '36', '-14', '-999999999999999999', '']
+        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+        Prob2.largest_two()
+        captured = capsys.readouterr().out.splitlines()
+        assert '36' in captured[-2], f"The largest number 36 should be appearing on the second to last line of your output!"
+        assert '-14' in captured[-1], f"The second-largest number -14 should be appearing on the second to last line of your output!"
+
+    def test_equal_values(self, monkeypatch, capsys):
+        input_values = ['13', '13', '']
+        monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+        Prob2.largest_two()
+        captured = capsys.readouterr().out.splitlines()
+        assert '13' in captured[-2], f"The largest number 13 should be appearing on the second to last line of your output!"
+        assert '13' in captured[-1], f"The second-largest number 13 should be appearing on the second to last line of your output!"
+
 
 class Test_Prob3:
     def test_contains_repeated_letters(self):
         inputs = ["single", "repeating", "eerie", "shiny", "dead", "wheat", "putty"]
         sols = [False, True, True, False, True, False, True]
         for i,o in zip(inputs, sols):
-            assert Prob3.contains_repeated_letters(i) == 0, \
+            assert Prob3.contains_repeated_letters(i) == o, \
                 f"Your function should return {o} for the word {i}, but it is not!"
 
     def test_longest_no_repeats(self):
@@ -95,5 +109,5 @@ class Test_Prob3:
         byte_output = bytes(out, 'utf-8')
         hashed = sha256(byte_output).hexdigest()
         assert hashed == "81ac598f4c30fa5fb829dc004375bd4f8d7229ac8fb5d0af7f78ea8fc22460de", \
-            "Your longest word does not seem to be correct. Does it have duplicate letters?"
+            f"Your longest word of {out} does not seem to be correct. Does it have duplicate letters? Or are you sure it is the longest?"
 
