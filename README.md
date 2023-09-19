@@ -1,6 +1,6 @@
 # Problem Set 3
 
-Due the night of February 10th at midnight!
+Due the night of September 25th at 10pm
 
 ## Instructions
 The homework pdf has all the basic instructions, but here are some additional guidelines:

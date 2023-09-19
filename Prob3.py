@@ -1,46 +1,28 @@
-#######################################
+##################################################
 # Name:
 # Collaborators:
 # Estimated time spent (hr):
-#######################################
+##################################################
 
-from english import ENGLISH_WORDS
+def to_obenglobish(word):
+    """ Converts an English word into its Obenglobish equivalent.
 
-
-# Part A
-def contains_repeated_letters(word):
-    """Returns True if the word contains more than one instance of any letter.
-
-    Arguments:
-        word (str): The word to check
-    Returns:
-        (bool): True or False depending on if the word contains duplicated letters
+    Inputs:
+        word (string): word to be translated to Obenglobish
+    Outputs:
+        (string): the Obenglobish translation of the word
     """
-    # Your turn!
+    pass # Add your code below and remove this pass!
 
 
-
-
-
-# Part B
-def longest_no_repeats():
-    """Returns the longest word in the English dictionary without an repeated letters.
-
-    Arguments:
-        None
-    Returns:
-        (str): The longest word without repeated letters
-    """
-    # Your turn!
 
 
 
 
 
 if __name__ == '__main__':
-    # Part A
-    print(contains_repeated_letters("single"))
-    print(contains_repeated_letters("repeating"))
-
-    # Part B
-    # print(longest_no_repeats()) #Uncomment when you've finished Part B
+    # Some testing printouts for your use!
+    print(f"to_obenglobish('english') gives {to_obenglobish('english')}.")
+    print(f"to_obenglobish('gooiest') gives {to_obenglobish('gooiest')}.")
+    print(f"to_obenglobish('amaze')   gives {to_obenglobish('amaze')}.")
+    print(f"to_obenglobish('rot')     gives {to_obenglobish('rot')}.")
