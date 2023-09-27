@@ -1,18 +1,29 @@
 ##################################################
-# Name:
-# Collaborators:
-# Estimated time spent (hr):
+# Name: Andrew Cerqui
+# Collaborators: got help trouble shooting with chat GPT
+# Estimated time spent (hr): 1.5
 ##################################################
 
 def to_obenglobish(word):
-    """ Converts an English word into its Obenglobish equivalent.
+    obenglobish_word = ""
+    vowels = "aeiou"
 
-    Inputs:
-        word (string): word to be translated to Obenglobish
-    Outputs:
-        (string): the Obenglobish translation of the word
-    """
-    pass # Add your code below and remove this pass!
+    for i in range(len(word)):
+        # Checks if the current letter is a vowel
+        if word[i] in vowels:
+            # If the first letter is a vowel it adds ob to beginning
+            if i == 0:
+                obenglobish_word += "ob"
+            # Adds ob before vowel as long as the previous letter is not a vowel
+            elif word[i - 1] not in vowels:
+                obenglobish_word += "ob"
+        # Checks if last character is E and then doest not add ob
+        elif word[i] == 'e' and i == len(word) - 1:
+            pass
+        # Add the current character to the Obenglobish word
+        obenglobish_word += word[i]
+
+    return obenglobish_word
 
 
 
